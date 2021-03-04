@@ -5,7 +5,7 @@
     <style>
         .header {
             padding-top: 3%;
-           
+
             font-size: 2rem;
             font-family: Arial, Helvetica, sans-serif;
             text-align: center;
@@ -21,6 +21,25 @@
             font-family: Arial, Helvetica, sans-serif;
             text-align: center; 
         }
+        .hint{
+            font-size: .8rem;
+            letter-spacing: 1px;
+        }
+        .button {
+  font: bold 11px Arial;
+  text-decoration: none;
+  background-color: #EEEEEE;
+  color: #333333;
+  padding: 2px 6px 2px 6px;
+  border-top: 1px solid #CCCCCC;
+  border-right: 1px solid #333333;
+  border-bottom: 1px solid #333333;
+  border-left: 1px solid #CCCCCC;
+}
+   
+        .gradient-background{
+            color: white;
+        }
         
     </style>
     <meta charset="UTF-8">
@@ -31,23 +50,22 @@
 </head>
 
 <body>
-    <section class = blue-background>
+    <section class = "gradient-background" >
         <h2 class="header"> Vaulted </h2>
         <p style= "text-align: center;">Thank you for downloading,</p>
         <br>
         <div>
-            <form class = login-form>
+            <form class = login-form >
                 <label for="username">Username:</label>
-                <input type="text" id="username" name="username"><br>
+                <input type="text" id="username" name="username">
+                <br>
                 <label for="pwd">Password:</label>
                 <input type="password" id="pwd" name="pwd">
+                <br>
+                <a class ="button" href = "">input</a>
+                <h3 class = "hint">hint: will need to be hidden</h3>
               </form> 
         </div>
     </section>
-    
-
-
 </body>
-
-
 </html>
