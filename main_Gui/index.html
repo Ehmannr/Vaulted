@@ -4,43 +4,88 @@
 <head>
     <style>
         .header {
-            padding-top: 3%;
 
             font-size: 2rem;
             font-family: Arial, Helvetica, sans-serif;
             text-align: center;
         }
-        .login{
-            padding-top: 3%;
-            font-size: 2rem;
+
+        .header-small {
+
+            font-size: 1.2rem;
             font-family: Arial, Helvetica, sans-serif;
             text-align: center;
         }
-        .login-form{
-            font-size: 2rem;
+        .folder-title{
+            font-size: 1rem;
+            padding-right: 10%;
             font-family: Arial, Helvetica, sans-serif;
-            text-align: center; 
+            text-align: right;
         }
-        .hint{
-            font-size: .8rem;
-            letter-spacing: 1px;
-        }
+
         .button {
-  font: bold 11px Arial;
-  text-decoration: none;
-  background-color: #EEEEEE;
-  color: #333333;
-  padding: 2px 6px 2px 6px;
-  border-top: 1px solid #CCCCCC;
-  border-right: 1px solid #333333;
-  border-bottom: 1px solid #333333;
-  border-left: 1px solid #CCCCCC;
-}
-   
-        .gradient-background{
+            font: bold 11px Arial;
+            text-decoration: none;
+            background-color: #EEEEEE;
+            color: #333333;
+            padding: 2px 6px 2px 6px;
+            border-top: 1px solid #CCCCCC;
+            border-right: 1px solid #333333;
+            border-bottom: 1px solid #333333;
+            border-left: 1px solid #CCCCCC;
+        }
+
+        .gradient-background {
             color: white;
         }
-        
+
+        .row {
+            display: flex;
+        }
+
+        .column1 {
+            flex: 15%;
+            border-style: solid;
+            border-width: 2px;
+        }
+
+        .column2 {
+            flex: 85%;
+            border-style: solid;
+            border-width: 2px;
+        }
+
+        .column-description {
+            flex: 5%;
+            border-style: solid;
+            z-index: 2;
+            border-width: 2px;
+            padding-left: 2%;
+        }
+
+    
+
+        .column-Usernames {
+            flex: 30%;
+            border-style: solid;
+            z-index: 2;
+            border-width: 2px;
+            padding-left: 2%;
+        }
+
+        .column-passwords {
+            flex: 30%;
+            border-style: solid;
+            z-index: 2;
+            border-width: 2px;
+            padding-left: 2%;
+        }
+
+        p::after {
+            content: "";
+            border-bottom: 2px solid gray;
+            display: block;
+        }
     </style>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -50,9 +95,33 @@
 </head>
 
 <body>
-    <section class = "gradient-background" >
-        
+    <section class="gradient-background">
+        <h2 class="header"> Vaulted </h2>
+        <div class="row">
+            <div class="column1">
+                <h2 class="header-small">Folders</h2>
+                
+                <h3 class = "folder-title">General <a class ="button" href = "">box</a></h3>
+            </div>
+            <div class="column2">
+                <h2 class="header-small">Usernames/Passwords</h2>
+                <div class="row">
+                    <div class="column-description">
+                        <p>admin account</p>
+                        <p>etown email</p>
+                    </div>
+                    <div class="column-Usernames">
+                        <p>admin</p>
+                        <p>email@email.com</p>
+                    </div>
+                    <div class="column-passwords">
+                        <p>password</p>
+                        <p>H89kjszxiw69s7JUB.AS8J</p>
+                    </div>
+                </div>
+            </div>
         </div>
     </section>
 </body>
+
 </html>
