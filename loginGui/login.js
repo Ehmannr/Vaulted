@@ -1,11 +1,15 @@
 /*this is for testing purposes*/
-const username = admin;
-const password = password;
-const username_input = document.getElementById("username").value;;
-const password_input= document.getElementById("pwd").value;;
-
 function attemp_login() {
-    if (username_input == username && password_input == password) {
-        alert("Login successfully");
+           
+    var username = "a";
+    var password = "p";
+    const username_input = document.getElementById("username").value;
+    const password_input = document.getElementById("pwd").value;
+        if (username_input == username && password_input == password) {
+           
+            window.location.replace("../main_Gui/index.html");
+        }
+        else{
+            alert("Invalid username or password");
+        }
     }
-}

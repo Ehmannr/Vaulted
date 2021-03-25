@@ -3,32 +3,37 @@
 
 <head>
     <style>
-        
+
     </style>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="..\loginGui\login.css">
-    
+
     <title>Document</title>
 </head>
-<script src="myscripts.js"></script> 
+
+
 <body>
-    <section class = "gradient-background" >
+    <section class="gradient-background">
         <h2 class="header"> Vaulted </h2>
-        <p style= "text-align: center;">Thank you for downloading,</p>
+        <p style="text-align: center;">Thank you for downloading,</p>
         <br>
         <div>
-            <form class = login-form >
+            <div class=login-form>
                 <label for="username">Username:</label>
                 <input type="text" id="username" name="username">
                 <br>
                 <label for="pwd">Password:</label>
                 <input type="password" id="pwd" name="pwd">
                 <br>
-                <a class ="button" onclick="attemp_login()">submit</a>
-              </form> 
+                <button onclick="attemp_login()">submit</button>
+            </div>
+            
         </div>
     </section>
+
+    <script src = "login.js"></script>
 </body>
+
 </html>
