@@ -1,8 +1,8 @@
 /*this is for testing purposes*/
 function attemp_login() {
            
-    var username = "a";
-    var password = "p";
+    var username = "admin";
+    var password = "password";
     const username_input = document.getElementById("username").value;
     const password_input = document.getElementById("pwd").value;
         if (username_input == username && password_input == password) {
