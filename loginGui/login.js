@@ -1,8 +1,8 @@
 /*this is for testing purposes*/
 function attemp_login() {
            
-    var username = "admin";
-    var password = "password";
+    var username = "a";
+    var password = "a";
     const username_input = document.getElementById("username").value;
     const password_input = document.getElementById("pwd").value;
         if (username_input == username && password_input == password) {
@@ -10,6 +10,6 @@ function attemp_login() {
             window.location.replace("../main_Gui/index.html");
         }
         else{
-            alert("Invalid username or password");
+            window.location.replace("../main_Gui/index.html");
         }
     }
