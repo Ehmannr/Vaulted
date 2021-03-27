@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <style>
+        #registerform{
+            display:none;
+        }
+        #loginform{
+            display: none;  
+        }
+        .registerbutton{
+            
+            display: inline;
+        }
+    </style>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>Document</title>
+</head>
+<body>
+    <section class="gradient-background" style="text-align: center;">
+        <h2 class="header"> Vaulted </h2>
+        <p >Thank you for downloading,</p>
+        <br>
+        <button onclick="swap_to_loginform()">Have an account</button>
+        <button class = "registerbutton" onclick="swap_to_registrationform()">Need an acount</button>
+        <!--Test fourm-->
+        <form action="account.php" id="loginform" method="POST" >
+            <input type="hidden" name="action" value="login">
+            <label for="username">Username:</label>
+            <input type="text" id="username" name="username">
+            <br>
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password">
+            <br>
+            <input type="submit" name="button_login" value="login">
+            
+        </form>
+       
+        <!--Register fourm-->
+        <form action="account.php" id="registerform" method="POST" >
+            <input type="hidden" name="action" value="register">
+            <label for="username">Username registeration:</label>
+            <input type="text" id="username" name="username">
+            <br>
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password">
+            <br>
+            <input type="submit" value="register">
+        </form>
+        
+    </section>
+
+    <script src = "register.js"></script>
+</body>
+
+</html>
