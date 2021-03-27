@@ -1,16 +1,13 @@
 <?php
 include "getPDO.php";
 session_start();
-login();
-/*
+
+
 if(isset($_POST["action"])){
   if($_POST["action"] === "login") login();
   elseif($_POST["action"] === "register") registerAccount();
-  else process_error("HTTP/1.1 422 Unprocessable Entity", "Invalid action parameter.");
 }
-else
-  process_error("HTTP/1.1 400 Bad Request","Missing action parameter.");
-  */
+ 
 
 function login(){
   $user = $_POST["username"];
@@ -22,15 +19,13 @@ function login(){
     $passwordQuery->execute([$user]);
     $row = $passwordQuery->fetch(PDO::FETCH_ASSOC);
     
-    if($row["password"]==="test"){
+    if(password_verify($password,$row["password"])){
       header("Location: tableGui.html");  				
     }
-    else{
-        echo( "im here two");
+    else{   
       header("Location: index.html");
     }
   }catch(PDOException $ex){
-    echo( "im here three");
     header("Location: index.html");    
   }
 }
@@ -41,30 +36,21 @@ function registerAccount(){
 
   $conn=getPDO();
   try{
-    $sql=$conn->prepare("SELECT userID FROM users where username like ?");
+    $sql=$conn->prepare("SELECT username FROM users where username like ?");
     $sql->execute([$username]);
     $row=$sql->fetch(PDO::FETCH_ASSOC);
     if($row!=NULL){
-      header("Location: http://divinanacua.com/errors/duplicateUsername.html");
+      echo("user already in DB");
       exit;
     }
 
-    $sql=$conn->prepare("SELECT userID from users where email like ?");
-    $sql->execute([$email]);
-    $row=$sql->fetch(PDO::FETCH_ASSOC);
-    if($row!=NULL){
-      header("Location: http://divinanacua.com/errors/duplicateEmail.html");
-      exit;
-    }
-		
     else{
-      $sql=$conn->prepare("INSERT INTO users(username,fname,lname,password,familyMember,email) values (?,?,?,?,?,?)");
-      $sql->execute([$username,$fname,$lname,$saltedPass,0,$email]);
+      $sql=$conn->prepare("INSERT INTO users(username,password) values (?,?)");
+      $sql->execute([$username,$saltedPass]);
       //$conn->exec($sql);
-      echo "Account successfully registered.";
+      header("Location: index.html");
     }
   }catch(PDOException $ex){
-    handleDBError("Cannot connect to database. Try again later.", $ex);
   }
 }
 ?>
