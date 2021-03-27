@@ -1,5 +1,5 @@
 <?php
-include "test.php";
+include "getPDO.php";
 session_start();
 login();
 /*
@@ -23,7 +23,7 @@ function login(){
     $row = $passwordQuery->fetch(PDO::FETCH_ASSOC);
     
     if($row["password"]==="test"){
-      header("Location: testing.html");  				
+      header("Location: tableGui.html");  				
     }
     else{
         echo( "im here two");
@@ -37,8 +37,6 @@ function login(){
 
 function registerAccount(){
   $username = $_POST["username"];
-  $fname = $_POST["fname"];
-  $lname = $_POST["lname"];
   $saltedPass = password_hash($_POST["password"], PASSWORD_BCRYPT);
 
   $conn=getPDO();
