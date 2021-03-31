@@ -27,16 +27,7 @@
     text-align: center; 
 }
 
-.button {
-    width: 100%;
-    padding: 12px 10px;
-    border: none;
-    font-size: 18px;
-    border-radius: 30px;
-    background-color:white;
-    
-    color: black;
-}  
+ 
 
 .gradient-background{
     color: white;
@@ -86,6 +77,40 @@
   .gradient-background {
     background: rgb(0, 75, 152);
     background: var(--radial-gradiant);
+  }
+  div[class*=button] {
+    margin: 5% 0;
+  }
+  
+  div[class*=buttons]:hover a i {
+    transition: 150ms all ease-in;
+    margin-left: 10px;
+  }
+  
+  a[class*=black__button] {
+    background-color: #3c4249;
+    color: #ffffff;
+    height: 15px ;
+  }
+  
+  a[class*=black__button]:hover {
+    background-color: #ffffff;
+    color: black;
+  }
+  
+  
+  a[class*=button] {
+    font-size: 1rem;
+    text-decoration: none;
+    padding: 2% 3%;
+    border-radius: 50px;
+    margin: 0 2% 5% 0;
+    display: inline-flex;
+    align-items: center;
+  }
+  
+  a[class*=button]:hover:after {
+    opacity: 0 !important;
   }
   
   @media screen and (min-width: 768px) {
