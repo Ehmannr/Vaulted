@@ -1,6 +1,7 @@
 <?php
 include "getPDO.php";
 session_start();
+$dbname="testDB"; 
 
 
 if(isset($_POST["action"])){
@@ -51,6 +52,7 @@ function registerAccount(){
       $sql->execute([$username,$saltedPass]);
       //$conn->exec($sql);
       createdatabase($username);
+      $dbname = $username;
       header("Location: tableGui.html");
       
       
@@ -70,6 +72,18 @@ function createdatabase($username){
   $conn=getPDO();
   //echo($username);
   $sql=$conn->prepare("CREATE DATABASE  $username ;");
+      $sql->execute();
+
+      
+      
+}
+function createEntry($tablename){
+  $conn=getPDO();
+  $desc = $_POST["desc"]
+  $entryuser = $_POST["entryUser"];
+  $entrypassword = $_post["entrypassword"]
+  //echo($username);
+  $sql=$conn->prepare("INSERT INTO $tablename(descp, username,pwd) VALUES ($desc, $entryuser,$entrypassword); ;");
       $sql->execute();
       
       
