@@ -1,11 +1,13 @@
 <?php
 include "getPDO.php";
 session_start();
+$dbname="testDB"; 
 
 
 if(isset($_POST["action"])){
   if($_POST["action"] === "login") login();
   elseif($_POST["action"] === "register") registerAccount();
+  //elseif($post["action"]==="tablemaker")createTable()
 }
  
 
@@ -40,6 +42,7 @@ function registerAccount(){
     $sql->execute([$username]);
     $row=$sql->fetch(PDO::FETCH_ASSOC);
     if($row!=NULL){
+      
       echo("user already in DB");
       exit;
     }
@@ -48,9 +51,41 @@ function registerAccount(){
       $sql=$conn->prepare("INSERT INTO users(username,password) values (?,?)");
       $sql->execute([$username,$saltedPass]);
       //$conn->exec($sql);
-      header("Location: index.html");
+      createdatabase($username);
+      $dbname = $username;
+      header("Location: tableGui.html");
+      
+      
     }
   }catch(PDOException $ex){
   }
+}
+function createTable($username){
+  $conn=getPDO();
+  //echo($username);
+  $sql=$conn->prepare("CREATE TABLE  $username (descp varchar(255), username varchar(255), pwd varchar(255));");
+      $sql->execute();
+      
+      
+}
+function createdatabase($username){
+  $conn=getPDO();
+  //echo($username);
+  $sql=$conn->prepare("CREATE DATABASE  $username ;");
+      $sql->execute();
+
+      
+      
+}
+function createEntry($tablename){
+  $conn=getPDO();
+  $desc = $_POST["desc"]
+  $entryuser = $_POST["entryUser"];
+  $entrypassword = $_post["entrypassword"]
+  //echo($username);
+  $sql=$conn->prepare("INSERT INTO $tablename(descp, username,pwd) VALUES ($desc, $entryuser,$entrypassword); ;");
+      $sql->execute();
+      
+      
 }
 ?>
