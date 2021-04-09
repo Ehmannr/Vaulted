@@ -8,6 +8,8 @@ Currently there is no .exe file to download so,
 2.) An installation of MySQL (for building and utilizing the database backend)
 3.) A way to host a local sever with php and connect with SQL database (I use XamPP)
 
+more indepth installations instuctions to come when .exe is added
+
 
 
 ## Usage
