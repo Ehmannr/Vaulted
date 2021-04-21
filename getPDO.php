@@ -1,10 +1,9 @@
 <?php
 function getPDO(){
   $host="localhost";
- $user="ehmannr";
- $password="Roccatkone5";
- $dbname="testDB"; 
- $ds="mysql:host={$host};dbname={$dbname};";
+ $user="root";
+ $password="password";
+ $ds="mysql:host={$host};dbname={test};";
   try{
     $db=new PDO($ds,$user,$password);
     $db->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);
