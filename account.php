@@ -22,8 +22,6 @@
     } finally{
         $db->close();
     }
-    
-    
 
         function registerAccount($db,string $descript, string $username, string $password, string $folder){  
             $stmt = $db->prepare('INSERT INTO Accounts values (?, ?, ?, ?)');
