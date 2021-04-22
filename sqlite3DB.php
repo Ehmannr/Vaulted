@@ -37,6 +37,7 @@
 
         if($stmt){
             header("Location: index.html");
+            //echo($row["Passwords"]." ".$password);
          } else{
             echo $stmt->lastErrorMsg();
         }

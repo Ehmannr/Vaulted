@@ -58,6 +58,10 @@
         #registerform{
             display:none;
         }
+        #deleteform{
+            display:none;
+        }
+
     </style>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -72,13 +76,10 @@
         <div class="row">
             <div class="column1">
                 <h2 class="header-small">Folders</h2>
+               
+                <a class="black__button" onclick="swap_to_registrationform2()">Add an account</a>
+                <a class="black__button" onclick="swap_to_deleteform()">Delete account</a>
 
-                <h3 class="folder-title"> <a class="black__button" href="">General</a></h3>
-                <h3 class="folder-title"><a class="black__button" href="">Taxes</a></h3>
-                <h3 class="folder-title"><a class="black__button" href="">SSN</a></h3>
-                <h3 class="folder-title"><a class="black__button" href="">Child info</a></h3>
-                <a class="black__button" href="" method = "POST">Add a Folder</a>
-                <a class="black__button" onclick="swap_to_registrationform()">Add an account</a>
             </div>
             <div class="column2">
                 <table id= "genreal">
@@ -114,6 +115,11 @@
         <form action="account.php" id="registerform" method="POST" >
             <input type="hidden" name="action" value="addAccount">
 
+            <label for="Description">Description:</label>
+            <input type="text" id="Descript" name="Description">
+        
+            <br>
+        
             <label for="username">Username registeration:</label>
             <input type="text" id="username" name="username">
             <br>
@@ -122,19 +128,49 @@
             <input type="password" id="password" name="password">
             <br>
 
-            <label for="Description">Description:</label>
-            <input type="text" id="Descript" name="Description">
-        
-            <br>
+            
             <label for="Folder"> Add to a Folder:</label>
             <input type="text" id="Folder" name="Folder">
             
             <br>
             <input type="submit" value="Add Account">
         </form>
+
+        <section>
+            <form action="account.php" id="deleteform" method="POST" >
+                <input type="hidden" name="action" value="addAccount">
+    
+                        
+                <br>
+            
+                <label for="username">Username to Delete:</label>
+                <input type="text" id="username" name="username">
+                <br>
+    
+                <label for="password">Password:</label>
+                <input type="password" id="password" name="password">
+                <br>
+    
+                
+                <label for="Folder"> Delete from Folder:</label>
+                <input type="text" id="Folder" name="Folder">
+                
+                <br>
+                <input type="submit" value="Add Account">
+            </form>
+        </section>
+    </section>
+
+   
+    <section>
+
+
     </section>
   
  <script src = "register.js"></script>
+
+ 
+
 
 </body>
 
