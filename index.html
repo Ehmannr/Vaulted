@@ -29,28 +29,40 @@
         <a class = "black__button" onclick="swap_to_loginform()">Sign in </a>
         <a class = "black__button" onclick="swap_to_registrationform()">Register account</a>
         
-        <!--login fourm-->
+        <!--login forum-->
         <form action="sqlite3DB.php" id="loginform" method="POST" >
+
             <input type="hidden" name="action" value="login">
+
             <label for="username">Username:</label>
             <input type="text" id="username" name="username">
+
             <br>
+
             <label for="password">Password:</label>
             <input type="password" id="password" name="password">
+
             <br>
+
             <input type="submit" name="button_login" value="login">
             
         </form>
        
-        <!--Register fourm-->
+        <!--Register forum-->
         <form action="sqlite3DB.php" id="registerform" method="POST" >
+
             <input type="hidden" name="action" value="register">
+            
             <label for="username">Username registeration:</label>
             <input type="text" id="username" name="username">
+
             <br>
+
             <label for="password">Password:</label>
             <input type="password" id="password" name="password">
+
             <br>
+
             <input type="submit" value="register">
         </form>
         
