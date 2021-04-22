@@ -14,8 +14,8 @@
         if($action === 'addAccount'){
             registerAccount($db,$_POST['Description'], $_POST['username'], ($_POST['password']),$_POST['Folder']);
         }
-        elseif($action === 'login'){
-            login($db, $_POST['username'], $_POST['password']);
+        elseif($action === 'deleteAccount'){
+            deleteAccount($db, $_POST['username'], $_POST['password'],$_POST["Folder"]);
         }
     } catch(Exception $ex){
         echo $db->lastErrorMsg();
@@ -34,6 +34,19 @@
            if($stmt){
             header("Location: tableGui.html");
             echo '<script>alert("Account added")</script>';
+            } else{
+               echo $stmt->lastErrorMsg();
+           }
+       }
+       function deleteAccount($db, string $username, string $password, string $folder){
+        $stmt = $db->prepare('DELETE FROM Accounts WHERE Username like ? and Password like ? and Folder like ?;');
+        $stmt->bindParam(1, $username);
+         $stmt->bindParam(2, $password);
+         $stmt->bindParam(3, $folder);
+        $stmt->execute();
+
+        if($stmt){
+            header("Location: tableGui.html");
             } else{
                echo $stmt->lastErrorMsg();
            }
