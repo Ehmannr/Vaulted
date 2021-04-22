@@ -70,6 +70,25 @@
     margin: 4px 2px;
     cursor: pointer;
 }
+a[class*=red__button] {
+    background-color: #d14a41;
+    border: none;
+    color: white;
+    padding: 16px 32px;
+    text-decoration: none;
+    margin: 4px 2px;
+    cursor: pointer;
+        
+  }
+  #delete_button{
+    background-color: #d14a41;
+    border: none;
+    color: white;
+    padding: 16px 32px;
+    text-decoration: none;
+    margin: 4px 2px;
+    cursor: pointer;
+  }
 
 
     </style>
@@ -89,7 +108,7 @@
                 <form action="account.php" id="filterform" method="POST" >
                     <input type="hidden" name="action" value="filter">
         
-                    <label for="Folder"> filter:</label>
+                    <label for="Folder"> Sort by:</label>
             <input type="text" id="Folder" name="Folder">
                 
                     <br>
@@ -98,7 +117,7 @@
                   </form> 
                   <br>
                 <a class="black__button" onclick="swap_to_registrationform2()">Add an account</a>
-                <a class="black__button" onclick="swap_to_deleteform()">Delete account</a>
+                <a class="red__button" onclick="swap_to_deleteform()">Delete account</a>
 
             </div>
             <div class="column2">
@@ -132,6 +151,7 @@
                 </table>
             </div>
         </div>
+        <section style = "text-align: Center;">
         <form action="account.php" id="registerform" method="POST" >
             <input type="hidden" name="action" value="addAccount">
 
@@ -156,7 +176,7 @@
             <input type="submit" value="Add Account">
         </form>
 
-        <section>
+        
             <form action="account.php" id="deleteform" method="POST" >
                 <input type="hidden" name="action" value="deleteAccount">
     
@@ -176,7 +196,7 @@
                 <input type="text" id="Folder" name="Folder">
                 
                 <br>
-                <input type="submit" value="Delete Account">
+                <input id = "delete_button" type="submit" value="Delete Account">
             </form>
         </section>
     </section>

@@ -96,11 +96,12 @@
     cursor: pointer;
         
   }
-  
+
   a[class*=black__button]:hover {
     background-color: #ffffff;
     color: black;
   }
+ 
   
   input[type=button], input[type=submit], input[type=reset] {
     background-color: #3c4249;
