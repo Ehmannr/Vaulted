@@ -4,7 +4,7 @@
             $this->open($DBName);
         }
     }
-// DELETE FROM Users WHERE Usernames like "_";
+// DELETE FROM Users;
     $action = $_POST['action'];
 
     try{
@@ -48,15 +48,15 @@
           $passwordQuery->bindParam(1, $username);
           $data =$passwordQuery->execute();
           $row = $data->fetchArray(SQLITE3_ASSOC);
-         // echo($row."hello");
-         // echo($row["Passwords"]." ".$password);
+          //echo($row."hello");
+          //echo($row["Passwords"]." ".$password);
           
            if(password_verify($password,$row["Passwords"])){
-            header("Location: tableGui.html");  				
+             header("Location: tableGui.html");  				
            }
-           else{ 
-             echo("Username or password is incorrect");        
-           }
+            else{ 
+              echo("Username or password is incorrect");        
+            }
         }catch(PDOException $ex){
             echo("Username or password is incorrect 123");    
         }
