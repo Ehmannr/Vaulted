@@ -30,7 +30,7 @@
         <a class = "black__button" onclick="swap_to_registrationform()">Register account</a>
         
         <!--Test fourm-->
-        <form action="account.php" id="loginform" method="POST" >
+        <form action="sqlite3DB.php" id="loginform" method="POST" >
             <input type="hidden" name="action" value="login">
             <label for="username">Username:</label>
             <input type="text" id="username" name="username">
@@ -43,7 +43,7 @@
         </form>
        
         <!--Register fourm-->
-        <form action="account.php" id="registerform" method="POST" >
+        <form action="sqlite3DB.php" id="registerform" method="POST" >
             <input type="hidden" name="action" value="register">
             <label for="username">Username registeration:</label>
             <input type="text" id="username" name="username">
