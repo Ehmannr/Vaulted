@@ -3,7 +3,6 @@
 
 <head>
     <style>
-        /*note need to make a smaller ver*/
         .header {
             font-size: 2rem;
             font-family: Arial, Helvetica, sans-serif;
@@ -61,6 +60,16 @@
         #deleteform{
             display:none;
         }
+        input[type=button], input[type=submit], input[type=reset] {
+            background-color: #3c4249;
+            border: none;
+            color: white;
+            padding: 16px 32px;
+            text-decoration: none;
+            margin: 4px 2px;
+            cursor: pointer;
+        }
+
 
     </style>
     <meta charset="UTF-8">
@@ -76,7 +85,17 @@
         <div class="row">
             <div class="column1">
                 <h2 class="header-small">Folders</h2>
-               
+                <form action="account.php" id="filterform" method="POST" >
+                    <input type="hidden" name="action" value="filter">
+        
+                    <label for="filter">Sort by:</label>
+                    <input type="text" id="filter" name="filter">
+                
+                    <br>
+                    
+                    <input type="submit" value="Search" >
+                  </form> 
+                  <br>
                 <a class="black__button" onclick="swap_to_registrationform2()">Add an account</a>
                 <a class="black__button" onclick="swap_to_deleteform()">Delete account</a>
 
@@ -162,8 +181,6 @@
     </section>
 
  <script src = "Swap_form.js"> </script>
- 
-
 
 </body>
 
