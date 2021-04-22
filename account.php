@@ -17,6 +17,9 @@
         elseif($action === 'deleteAccount'){
             deleteAccount($db, $_POST['username'], $_POST['password'],$_POST["Folder"]);
         }
+        elseif($action === 'filter'){
+            filter($db, $_POST['Folder']);
+        }
     } catch(Exception $ex){
         echo $db->lastErrorMsg();
     } finally{
@@ -41,12 +44,23 @@
        function deleteAccount($db, string $username, string $password, string $folder){
         $stmt = $db->prepare('DELETE FROM Accounts WHERE Username like ? and Password like ? and Folder like ?;');
         $stmt->bindParam(1, $username);
-         $stmt->bindParam(2, $password);
-         $stmt->bindParam(3, $folder);
+        $stmt->bindParam(2, $password);
+        $stmt->bindParam(3, $folder);
         $stmt->execute();
 
         if($stmt){
             header("Location: tableGui.html");
+            } else{
+               echo $stmt->lastErrorMsg();
+           }
+       }
+    function filter($db, string $folder){
+        $stmt = $db->prepare('SELECT * FROM Accounts where Folder like ?');
+        $stmt->bindParam(1, $folder);
+        $stmt->execute();
+
+        if($stmt){
+            echo("This would update the table inside of the prev page if I finished that html/sql/php code");
             } else{
                echo $stmt->lastErrorMsg();
            }
