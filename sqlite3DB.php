@@ -32,7 +32,7 @@
     function registerAccount($db, string $username, string $password){  
          $stmt = $db->prepare('INSERT INTO Users values (?, ?)');
          $stmt->bindParam(1, $username);
-        $stmt->bindParam(2, $password);
+         $stmt->bindParam(2, $password);
          $stmt->execute();
 
         if($stmt){
