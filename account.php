@@ -58,7 +58,7 @@
         $stmt = $db->prepare('SELECT * FROM Accounts where Folder like ?');
         $stmt->bindParam(1, $folder);
         $stmt->execute();
-
+// for testing SELECT * FROM Accounts where Folder like "test";
         if($stmt){
             echo("This would update the table inside of the prev page if I finished that html/sql/php code");
             } else{

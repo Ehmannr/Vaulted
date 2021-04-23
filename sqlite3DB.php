@@ -22,7 +22,7 @@
         $db->close();
     }
    
-
+    //uses hash to encrypt user passwords for storeage within DB
     function hashPass(string $password){
         return password_hash($_POST["password"], PASSWORD_BCRYPT);
     }
