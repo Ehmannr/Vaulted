@@ -53,7 +53,7 @@
           //echo($row["Passwords"]." ".$password);
           
            if(password_verify($password,$row["Passwords"])){
-             header("Location: tableGui.html");  				
+             header("Location: filteredTable.php");  				
            }
             else{ 
               echo("Username or password is incorrect");        

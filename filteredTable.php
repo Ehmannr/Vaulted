@@ -1,8 +1,17 @@
-<!DOCTYPE html>
-<html lang="en">
+<?php
+class MyDB extends SQLite3{
+    function __invoke(string $DBName){
+        $this->open($DBName);
+    }
+}
+$db = new MyDB('Main.db');
+?>
 
-<head>
-    <style>
+
+<!DOCTYPE html>
+<html>
+
+<head><style>
         .header {
             font-size: 2rem;
             font-family: Arial, Helvetica, sans-serif;
@@ -89,19 +98,12 @@ a[class*=red__button] {
     margin: 4px 2px;
     cursor: pointer;
   }
-
-
     </style>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="styles.css">
-    <title>Document</title>
-</head>
-
-<body>
+    </head>
+    <body>
     <section class="gradient-background">
-        <h2 class="header"> this is a demo page </h2>
+        <h2 class="header"> Vaulted </h2>
         <div class="row">
             <div class="column1">
                 <h2 class="header-small">Folders</h2>
@@ -112,7 +114,7 @@ a[class*=red__button] {
             <input type="text" id="Folder" name="Folder">
                 
                     <br>
-                    
+    
                     <input type="submit" value="Search" >
                   </form> 
                   <br>
@@ -127,27 +129,17 @@ a[class*=red__button] {
                         <th>Description</th>
                         <th>Username/Email</th>
                         <th>Password</th>
+                        <th>Folder</th>
                     </tr>
-                    <tr><!--row 1-->
-                        <td>Service First</td>
-                        <td>552341</td>
-                        <td>BnkPass54</td>
-                    </tr>
-                    <tr><!--row 2-->
-                        <td>etown Email</td>
-                        <td>name@etown.edu</td>
-                        <td>ThisIsMyPassword1</td>
-                    </tr>
-                    <tr><!--row 3-->
-                        <td>Banking</td>
-                        <td>BankUser</td>
-                        <td>Password_Bank</td>
-                    </tr>
-                    <tr><!--demo-->
-                        <td>demo</td>
-                        <td>DemoUser</td>
-                        <td>Password_User</td>
-                    </tr>
+                    <?php
+                        $db = new MyDB('Main.db');
+                       $result = $db -> query("SELECT * from Accounts");
+                       while ($row = $result->fetchArray(SQLITE3_ASSOC)) {
+                        echo "<tr><td>". $row["Descript"]."</td><td>". $row["Username"]."</td><td>". $row["Password"]."</td><td>". $row["Folder"]."</td><tr>";
+                    }
+                    echo"</table>";
+                    $db->close();
+                    ?>
                 </table>
             </div>
         </div>
@@ -204,5 +196,3 @@ a[class*=red__button] {
  <script src = "Swap_form.js"> </script>
 
 </body>
-
-</html>
