@@ -35,7 +35,7 @@
             $stmt->execute();
    
            if($stmt){
-            header("Location: tableGui.html");
+            header("Location: filteredTable.php");  	
             echo '<script>alert("Account added")</script>';
             } else{
                echo $stmt->lastErrorMsg();
@@ -49,18 +49,7 @@
         $stmt->execute();
 
         if($stmt){
-            header("Location: tableGui.html");
-            } else{
-               echo $stmt->lastErrorMsg();
-           }
-       }
-    function filter($db, string $folder){
-        $stmt = $db->prepare('SELECT * FROM Accounts where Folder like ?');
-        $stmt->bindParam(1, $folder);
-        $stmt->execute();
-
-        if($stmt){
-            echo("This would update the table inside of the prev page if I finished that html/sql/php code");
+            header("Location: filteredTable.php");  	
             } else{
                echo $stmt->lastErrorMsg();
            }

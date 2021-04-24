@@ -22,7 +22,7 @@
         $db->close();
     }
    
-
+    //uses hash to encrypt user passwords for storeage within DB
     function hashPass(string $password){
         return password_hash($_POST["password"], PASSWORD_BCRYPT);
     }
@@ -53,7 +53,7 @@
           //echo($row["Passwords"]." ".$password);
           
            if(password_verify($password,$row["Passwords"])){
-             header("Location: tableGui.html");  				
+             header("Location: filteredTable.php");  				
            }
             else{ 
               echo("Username or password is incorrect");        
