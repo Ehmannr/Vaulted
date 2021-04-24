@@ -4,7 +4,17 @@ class MyDB extends SQLite3{
         $this->open($DBName);
     }
 }
+
+$action = $_POST['action'];
 $db = new MyDB('Main.db');
+    $folder = '_';
+    
+    if($action === 'filter'){
+        $folder = resultChanger($db, $_POST['Folder']);
+    }
+    elseif($action === 'clear'){
+        $folder = '_';
+    }
 ?>
 
 
@@ -12,92 +22,85 @@ $db = new MyDB('Main.db');
 <html>
 
 <head><style>
-        .header {
-            font-size: 2rem;
-            font-family: Arial, Helvetica, sans-serif;
-            text-align: center;
-        }
+    .header-small {
+  font-size: 1.2rem;
+  font-family: Arial, Helvetica, sans-serif;
+  text-align: center;
+}
+.folder-title {
+  font-family: Arial, Helvetica, sans-serif;
+  text-align: center;
+}
+.gradient-background {
+  color: white;
+}
+.row {
+  display: flex;
+  height: fit-content;
+}
+.column1 {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  flex: 15%;
+  border-style: solid;
+  border-width: 2px;
+}
+.column2 {
+  flex: 85%;
+  border-style: solid;
+  border-width: 1px;
+  border-left: 0px;
+}
+table,th,td {
+  border-collapse: collapse;
+  border: 1px solid white;
+  margin-left: auto;
+  margin-right: auto;
+}
+table {
+  width: 100%;
+  height: 100%;
+  
+}
+th,td {
+  padding: 10px;
+}
+#registerform{
+  display:none;
+}
+#deleteform{
+  display:none;
+}
 
-        .header-small {
-            font-size: 1.2rem;
-            font-family: Arial, Helvetica, sans-serif;
-            text-align: center;
-        }
-
-        .folder-title {
-            font-family: Arial, Helvetica, sans-serif;
-            text-align: center;
-        }
-        .gradient-background {
-            color: white;
-        }
-        .row {
-            display: flex;
-            height: fit-content;
-        }
-        .column1 {
-            display: flex;
-            justify-content: center;
-            flex-direction: column;
-            flex: 15%;
-            border-style: solid;
-            border-width: 2px;
-        }
-        .column2 {
-            flex: 85%;
-            border-style: solid;
-            border-width: 1px;
-            border-left: 0px;
-        }
-        table,th,td {
-            border-collapse: collapse;
-            border: 1px solid white;
-            margin-left: auto;
-            margin-right: auto;
-        }
-        table {
-            width: 100%;
-            height: 100%;
-            
-        }
-        th,td {
-            padding: 10px;
-        }
-        #registerform{
-            display:none;
-        }
-        #deleteform{
-            display:none;
-        }
-       
-        input[type=button], input[type=submit], input[type=reset] {
-    background-color: #3c4249;
-    border: none;
-    color: white;
-    padding: 16px 32px;
-    text-decoration: none;
-    margin: 4px 2px;
-    cursor: pointer;
+input[type=button], input[type=submit], input[type=reset] {
+background-color: #3c4249;
+border: none;
+color: white;
+padding: 16px 32px;
+text-decoration: none;
+margin: 4px 2px;
+cursor: pointer;
 }
 a[class*=red__button] {
-    background-color: #d14a41;
-    border: none;
-    color: white;
-    padding: 16px 32px;
-    text-decoration: none;
-    margin: 4px 2px;
-    cursor: pointer;
-        
-  }
-  #delete_button{
-    background-color: #d14a41;
-    border: none;
-    color: white;
-    padding: 16px 32px;
-    text-decoration: none;
-    margin: 4px 2px;
-    cursor: pointer;
-  }
+background-color: #d14a41;
+border: none;
+color: white;
+padding: 16px 32px;
+text-decoration: none;
+margin: 4px 2px;
+cursor: pointer;
+
+}
+#delete_button{
+background-color: #d14a41;
+border: none;
+color: white;
+padding: 16px 32px;
+text-decoration: none;
+margin: 4px 2px;
+cursor: pointer;
+}
     </style>
     <link rel="stylesheet" href="styles.css">
     </head>
@@ -115,9 +118,11 @@ a[class*=red__button] {
                 
                     <br>
     
-                    <input type="submit" value="Search" >
+                    <input type="submit" value="Search / Clear" >
+                    <br>
                   </form> 
                   <br>
+                  
                 <a class="black__button" onclick="swap_to_registrationform2()">Add an account</a>
                 <a class="red__button" onclick="swap_to_deleteform()">Delete account</a>
 
@@ -133,7 +138,17 @@ a[class*=red__button] {
                     </tr>
                     <?php
                         $db = new MyDB('Main.db');
-                       $result = $db -> query("SELECT * from Accounts");
+                        function resultChanger($db , string $Folder){
+                            if($Folder == ''){
+                                return $folder = '%';
+                            }
+                            else{
+                                return $Folder;
+                            }
+                            
+                        }
+                            
+                            $result = $db -> query("SELECT * from Accounts WHERE Folder like '$folder'");
                        while ($row = $result->fetchArray(SQLITE3_ASSOC)) {
                         echo "<tr><td>". $row["Descript"]."</td><td>". $row["Username"]."</td><td>". $row["Password"]."</td><td>". $row["Folder"]."</td><tr>";
                     }

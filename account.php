@@ -4,9 +4,7 @@
             $this->open($DBName);
         }
     }
-// DELETE FROM Accounts;
-// https://www.viralpatel.net/dynamic-add-textbox-input-button-radio-element-html-javascript/
-// for adding buttons 
+
     $action = $_POST['action'];
 
     try{
@@ -36,7 +34,7 @@
    
            if($stmt){
             header("Location: filteredTable.php");  	
-            echo '<script>alert("Account added")</script>';
+            
             } else{
                echo $stmt->lastErrorMsg();
            }
