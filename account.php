@@ -15,9 +15,6 @@
         elseif($action === 'deleteAccount'){
             deleteAccount($db, $_POST['username'], $_POST['password'],$_POST["Folder"]);
         }
-        elseif($action === 'filter'){
-            filter($db, $_POST['Folder']);
-        }
     } catch(Exception $ex){
         echo $db->lastErrorMsg();
     } finally{

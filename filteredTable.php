@@ -1,18 +1,18 @@
 <?php
+//connects to db
 class MyDB extends SQLite3{
     function __invoke(string $DBName){
         $this->open($DBName);
     }
 }
-
-$action = $_POST['action'];
 $db = new MyDB('Main.db');
-    $folder = '_';
-    
+    $folder = '_'; //for SELECT * FROM Accounts where folder like "%' so it shows all when first loaded
+
+    $action = $_POST['action'];
     if($action === 'filter'){
-        $folder = resultChanger($db, $_POST['Folder']);
+        $folder = resultChanger($db, $_POST['Folder']);//gets the search text and changes _ to whats typed
     }
-    elseif($action === 'clear'){
+    elseif($action === 'clear'){ //clears search
         $folder = '_';
     }
 ?>
@@ -20,7 +20,7 @@ $db = new MyDB('Main.db');
 
 <!DOCTYPE html>
 <html>
-
+<!--The html /css for the page-->
 <head><style>
     .header-small {
   font-size: 1.2rem;
@@ -136,8 +136,10 @@ cursor: pointer;
                         <th>Password</th>
                         <th>Folder</th>
                     </tr>
+                    <!--php inserted into table rows-->
                     <?php
                         $db = new MyDB('Main.db');
+                        //allows for searching by Folder
                         function resultChanger($db , string $Folder){
                             if($Folder == ''){
                                 return $folder = '%';
@@ -147,11 +149,10 @@ cursor: pointer;
                             }
                             
                         }
-                            
-                            $result = $db -> query("SELECT * from Accounts WHERE Folder like '$folder'");
-                       while ($row = $result->fetchArray(SQLITE3_ASSOC)) {
-                        echo "<tr><td>". $row["Descript"]."</td><td>". $row["Username"]."</td><td>". $row["Password"]."</td><td>". $row["Folder"]."</td><tr>";
-                    }
+                        $result = $db -> query("SELECT * from Accounts WHERE Folder like '$folder'");
+                        while ($row = $result->fetchArray(SQLITE3_ASSOC)) {
+                            echo "<tr><td>". $row["Descript"]."</td><td>". $row["Username"]."</td><td>". $row["Password"]."</td><td>". $row["Folder"]."</td><tr>"; //gets data from db and inserts into rows
+                        }
                     echo"</table>";
                     $db->close();
                     ?>
@@ -159,6 +160,7 @@ cursor: pointer;
             </div>
         </div>
         <section style = "text-align: Center;">
+        <!--Add an account to accounts table form-->
         <form action="account.php" id="registerform" method="POST" >
             <input type="hidden" name="action" value="addAccount">
 
@@ -183,7 +185,7 @@ cursor: pointer;
             <input type="submit" value="Add Account">
         </form>
 
-        
+        <!--Delete an account to accounts table form-->
             <form action="account.php" id="deleteform" method="POST" >
                 <input type="hidden" name="action" value="deleteAccount">
     
