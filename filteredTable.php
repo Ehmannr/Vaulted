@@ -6,15 +6,12 @@ class MyDB extends SQLite3{
     }
 }
 $db = new MyDB('Main.db');
-    $folder = '_'; //for SELECT * FROM Accounts where folder like "%' so it shows all when first loaded
-
-    $action = $_POST['action'];
+    $folder = '%'; //for SELECT * FROM Accounts where folder like "%' so it shows all when first loaded
+  $action = isset($_POST['action'])?$_POST['action']:''; // tests to see if $_POST['action'] NOT NULL
     if($action === 'filter'){
         $folder = resultChanger($db, $_POST['Folder']);//gets the search text and changes _ to whats typed
     }
-    elseif($action === 'clear'){ //clears search
-        $folder = '_';
-    }
+    
 ?>
 
 
@@ -110,11 +107,12 @@ cursor: pointer;
         <div class="row">
             <div class="column1">
                 <h2 class="header-small">Folders</h2>
+
                 <form action="filteredTable.php" id="filterform" method="POST" >
                     <input type="hidden" name="action" value="filter">
         
                     <label for="Folder"> Sort by:</label>
-            <input type="text" id="Folder" name="Folder">
+                    <input type="text" id="Folder" name="Folder">
                 
                     <br>
     
@@ -138,7 +136,6 @@ cursor: pointer;
                     </tr>
                     <!--php inserted into table rows-->
                     <?php
-                        $db = new MyDB('Main.db');
                         //allows for searching by Folder
                         function resultChanger($db , string $Folder){
                             if($Folder == ''){
@@ -149,6 +146,7 @@ cursor: pointer;
                             }
                             
                         }
+                        //Select Descript, Username, Password , Folder from Accounts , Users where Accounts.userID = 1 and Accounts.Folder like 'gaming';
                         $result = $db -> query("SELECT * from Accounts WHERE Folder like '$folder'");
                         while ($row = $result->fetchArray(SQLITE3_ASSOC)) {
                             echo "<tr><td>". $row["Descript"]."</td><td>". $row["Username"]."</td><td>". $row["Password"]."</td><td>". $row["Folder"]."</td><tr>"; //gets data from db and inserts into rows
