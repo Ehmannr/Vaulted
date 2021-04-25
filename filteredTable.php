@@ -147,7 +147,7 @@ cursor: pointer;
                             
                         }
                         //Select Descript, Username, Password , Folder from Accounts , Users where Accounts.userID = 1 and Accounts.Folder like 'gaming';
-                        $result = $db -> query("SELECT * from Accounts WHERE Folder like '$folder'");
+                        $result = $db -> query("SELECT * from Accounts WHERE Folder like '$folder'ORDER BY Folder ASC");
                         while ($row = $result->fetchArray(SQLITE3_ASSOC)) {
                             echo "<tr><td>". $row["Descript"]."</td><td>". $row["Username"]."</td><td>". $row["Password"]."</td><td>". $row["Folder"]."</td><tr>"; //gets data from db and inserts into rows
                         }

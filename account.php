@@ -26,7 +26,7 @@
             $stmt->bindParam(1, $descript);
             $stmt->bindParam(2, $username);
              $stmt->bindParam(3, $password);
-             $stmt->bindParam(4, $folder);
+             $stmt->bindParam(4, strtoupper($folder));
             $stmt->execute();
    
            if($stmt){
@@ -40,7 +40,7 @@
         $stmt = $db->prepare('DELETE FROM Accounts WHERE Username like ? and Password like ? and Folder like ?;');
         $stmt->bindParam(1, $username);
         $stmt->bindParam(2, $password);
-        $stmt->bindParam(3, $folder);
+        $stmt->bindParam(3,strtoupper($folder));
         $stmt->execute();
 
         if($stmt){
