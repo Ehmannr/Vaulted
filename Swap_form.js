@@ -1,3 +1,4 @@
+//swaps forms inside of filteredTable.php
 function swap_to_registrationform2() {
     document.getElementById("registerform").style.display = "block";
     document.getElementById("deleteform").style.display = "none";

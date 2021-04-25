@@ -4,7 +4,7 @@
             $this->open($DBName);
         }
     }
-// DELETE FROM Users;
+    //gets what button is pushed and goes into try - catch 
     $action = $_POST['action'];
 
     try{
@@ -28,7 +28,7 @@
     }
 
 
-
+    // registers accoutn into db Users table
     function registerAccount($db, string $username, string $password){  
          $stmt = $db->prepare('INSERT INTO Users values (?, ?)');
          $stmt->bindParam(1, $username);
@@ -37,21 +37,18 @@
 
         if($stmt){
             header("Location: index.html");
-            //echo($row["Passwords"]." ".$password);
          } else{
             echo $stmt->lastErrorMsg();
         }
     }
+     //get username and password and compare from db
     function login($db, string $username, string $password){
-        //get username and password and compare from db
         try{
           $passwordQuery = $db->prepare("SELECT Passwords FROM Users WHERE Usernames = ?");
           $passwordQuery->bindParam(1, $username);
           $data =$passwordQuery->execute();
           $row = $data->fetchArray(SQLITE3_ASSOC);
-          //echo($row."hello");
-          //echo($row["Passwords"]." ".$password);
-          
+            //built in verify function
            if(password_verify($password,$row["Passwords"])){
              header("Location: filteredTable.php");  				
            }

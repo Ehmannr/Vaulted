@@ -1,3 +1,4 @@
+// swaps forms inside of index.html
 function swap_to_loginform(){
     document.getElementById("loginform").style.display = "block";
     document.getElementById("registerform").style.display = "none";
