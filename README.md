@@ -26,10 +26,11 @@
    ## **Configuration**
    - Config XAMMP
    Once Installed open XAMPP and go to Apache config and edit your __httpd.conf__ file
-   - To configure the Directory for the web sever
-    - search for DocumentRoot and change the DocumentRoot and Directory point to your clone as shown below.
+   - Search for DocumentRoot and change the DocumentRoot and Directory point to your clone as shown below.
     ![text](https://cdn.discordapp.com/attachments/446683114958356481/836023576892407808/unknown.png)
     
    Once that is done
    - Still inside of XAMPP Control Panel go back to Apache config and edit your __php.ini__ file
+   -  Search for sqlite and make sure that the two highlighted lines are uncommented
+   - ![text](https://cdn.discordapp.com/attachments/446683114958356481/836043049158836285/unknown.png)
    
