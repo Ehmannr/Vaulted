@@ -11,14 +11,14 @@
  
  
  
- # **LINKS**
+ # **Requirements and Links**
  - [XAMPP INSTALLER](https://www.apachefriends.org/index.html) 
      We use XAMPP to host our php on an Apache local sever
      -  [Download PHP 7.4](https://www.php.net/downloads) 
     With XAMPP you do not need to download any version of php since XAMPP has it by default
    
    
-   
+   # **Configuration**
   - Config XAMMP
     Once Installed open XAMPP and go to Apache config and edit your httpd.conf file
     - To configure the Directory for the web sever search for DocumentRoot and change the DocumentRoot and Directory point to your clone
