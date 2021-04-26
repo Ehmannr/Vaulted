@@ -3,7 +3,7 @@
    - Primary
      - Use an open source encryption to keep passwords safe (WIP)
      - Easy to use and understand user interface (Completed)
-     - Suggest strong passwords on demand (
+     - Suggest strong passwords on demand (WIP)
    - Stretch Goals
      -  Uploading files to be encrypted (Canceled due to Time constraints)
      - Check passwords if they have been apart of a data breach  (Canceled due to Time constraints/ price for api)
