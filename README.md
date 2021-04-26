@@ -37,4 +37,5 @@
    ## Local Host
    When finished with both files and cloned the repository
    If you go and start the sever inside of XAMMP Apache go to any web browser and type in localhost and it should take you to the login page of Vaulted
+   ![text](https://cdn.discordapp.com/attachments/446683114958356481/836044300118392852/unknown.png)
    
