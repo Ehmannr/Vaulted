@@ -1,4 +1,5 @@
   # **Goals**
+  This Project aims to be a easy to use, locally hosted, password mangager
    - Primary
      - Use an open source encryption to keep passwords safe
      - Easy to use and understand user interface
@@ -10,10 +11,11 @@
  
  
  
- - **LINKS**
-    - [XAMPP INSTALLER](https://www.apachefriends.org/index.html) 
-     - We use XAMPP to host our php on an Apache local sever
-    -  [Download PHP 7.4](https://www.php.net/downloads) With XAMPP you do not need to download any version of php since XAMPP has it by default
+ #**LINKS**
+ - [XAMPP INSTALLER](https://www.apachefriends.org/index.html) 
+     We use XAMPP to host our php on an Apache local sever
+     -  [Download PHP 7.4](https://www.php.net/downloads) 
+    With XAMPP you do not need to download any version of php since XAMPP has it by default
    
    
    
