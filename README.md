@@ -1,15 +1,12 @@
   # **Goals**
   This Project aims to be a easy to use, locally hosted, password mangager
    - Primary
-     - Use an open source encryption to keep passwords safe
-     - Easy to use and understand user interface
-     - Suggest strong passwords on demandA
+     - Use an open source encryption to keep passwords safe (WIP)
+     - Easy to use and understand user interface (Completed)
+     - Suggest strong passwords on demand (
    - Stretch Goals
-     -  Uploading files to be encrypted
-     - Check passwords if they have been apart of a data breach
-
- 
- 
+     -  Uploading files to be encrypted (Canceled due to Time constraints)
+     - Check passwords if they have been apart of a data breach  (Canceled due to Time constraints/ price for api)
  
  # **Requirements and Links**
  - [XAMPP INSTALLER](https://www.apachefriends.org/index.html) 
