@@ -23,7 +23,7 @@
   - To clone the Repository use `git clone https://github.com/Ehmannr/Vaulted [Your Folder here]` 
   ###### Note: do not keep the [] in your command
    
-   # **Configuration**
+   ## **Configuration**
   - Config XAMMP
     Once Installed open XAMPP and go to Apache config and edit your httpd.conf file
     - To configure the Directory for the web sever search for DocumentRoot and change the DocumentRoot and Directory point to your clone
