@@ -32,5 +32,9 @@
    Once that is done
    - Still inside of XAMPP Control Panel go back to Apache config and edit your __php.ini__ file
    -  Search for sqlite and make sure that the two highlighted lines are uncommented
-   - ![text](https://cdn.discordapp.com/attachments/446683114958356481/836043049158836285/unknown.png)
+    ![text](https://cdn.discordapp.com/attachments/446683114958356481/836043049158836285/unknown.png)
+    
+   ## Local Host
+   When finished with both files and cloned the repository
+   If you go and start the sever inside of XAMMP Apache go to any web browser and type in localhost and it should take you to the login page of Vaulted
    
