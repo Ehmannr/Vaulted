@@ -1,7 +1,6 @@
 # **Goals**
   This Project aims to be a easy to use, locally hosted, password mangager
    - Primary
-<<<<<<< ryan_branch
      - Use an open source encryption to keep passwords safe (WIP)
      - Easy to use and understand user interface (Completed)
      - Suggest strong passwords on demand (WIP)
@@ -34,7 +33,6 @@
    
    ## **Configuration**
    - Config XAMMP
-<<<<<<< ryan_branch
    Once Installed open XAMPP and go to Apache config and edit your __httpd.conf__ file
    - Search for DocumentRoot and change the DocumentRoot and Directory point to your clone as shown below.
     ![text](https://cdn.discordapp.com/attachments/446683114958356481/836023576892407808/unknown.png)
