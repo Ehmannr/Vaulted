@@ -18,7 +18,7 @@
 
  
  
->>>>>>> Master
+
  
  # **Requirements and Links**
  - [XAMPP INSTALLER](https://www.apachefriends.org/index.html) 
@@ -53,4 +53,3 @@
    Once Installed open XAMPP and go to Apache config and edit your httpd.conf file
    - To configure the Directory for the web sever search for DocumentRoot and change the DocumentRoot and Directory point to your clone as shown below.
     ![text](https://cdn.discordapp.com/attachments/446683114958356481/836023576892407808/unknown.png)
->>>>>>> Master
