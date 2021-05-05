@@ -47,7 +47,4 @@
    If you go and start the sever inside of XAMMP Apache go to any web browser and type in localhost and it should take you to the login page of Vaulted
    ![text](https://cdn.discordapp.com/attachments/446683114958356481/836044300118392852/unknown.png)
    
-=======
-   Once Installed open XAMPP and go to Apache config and edit your httpd.conf file
-   - To configure the Directory for the web sever search for DocumentRoot and change the DocumentRoot and Directory point to your clone as shown below.
-    ![text](https://cdn.discordapp.com/attachments/446683114958356481/836023576892407808/unknown.png)
+
